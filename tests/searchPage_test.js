@@ -1,4 +1,4 @@
-/// <reference path="./steps.d.ts" />
+/// <reference path="../steps.d.ts" />
 const assert = require('assert');
 
 Feature('searchPage');
