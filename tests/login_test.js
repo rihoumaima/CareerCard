@@ -6,7 +6,7 @@ Scenario('connexion avec des coordonnes corrects',async ({ I, loginPage }) => {
     
     loginPage.login(conf.login_url, conf.login_email, conf.login_password);
     I.waitForInvisible(loginPage.fields.submitButton, 10);
-    I.wait(2);
+    I.wait(5);
     I.seeInCurrentUrl('/Dashboard');
     
 }) 

@@ -8,6 +8,11 @@ Before(async ({ I, loginPage })=>{
 
 })
 
+Scenario('creation d\'une team pass', async ({ I, teamsPage}) => { 
+    teamsPage.creation_team_pass(teams_url);
+})
+
+
 Scenario('creation d\'une team avec une icone manquante', async ({ I, teamsPage}) => { 
     teamsPage.creation_team_fail_missing_file(conf.teams_url);
     I.wait(1);
