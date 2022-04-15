@@ -12,7 +12,8 @@ module.exports = {
       teamTypeButton: '//*[@id="chakra-modal--body-6"]/form/div/div[3]/label[2]/span[2]',
       deleteButton: '#root > div > div > div.css-jfo9gg > div.sc-dkQkyq.sc-jivBlf.fDiXhU.cSPwSG > div > div.jss372 > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(9) > div > div:nth-child(2) > label > button > span.MuiButton-label > span > svg' ,
       bouttonDeLaConfirmationDeSuppression: 'body > div.jss570 > div.jss571.jss572 > div > div.sc-jIkXHa.eVSPhG > div:nth-child(2)',
-    },
+      errorMsgInsertionDimage: '#chakra-modal--body-6 > form > div > div:nth-child(6)',
+      errorMsgInsertionDuNom: '#chakra-modal--body-6 > form > div > div:nth-child(6)', 
   
     creation_team_pass(teams_url) {
       I.say('creer une team');
@@ -36,6 +37,9 @@ module.exports = {
         I.fillField(this.fields.name, 'test');
         I.click(this.fields.teamTypeButton);
         I.click(this.fields.submitButton);
+        I.wait(1);
+        const erreur = await I.grabTextFrom(this.fields.errorMsgInsertionDimage);
+       assert.equal(erreur,'Team Icon is mandatory, please upload a valid Image.');
         
       },
 
@@ -48,10 +52,13 @@ module.exports = {
       //image here
       I.click(this.fields.teamTypeButton);
       I.click(this.fields.submitButton);
+      I.wait(1);
+      const erreur = await I.grabTextFrom(this.fields.errorMsgInsertionDuNom);
+      assert.equal(erreur,'Team Icon is mandatory, please upload a valid Image.');
       
     },
 
-    creation_team_fail_missing_team_type(teams_url) {
+    creation_team_fail_missing_type(teams_url) {
       I.say('creer une team sans type');
       I.amOnPage(teams_url); 
       I.click(this.fields.createButton);
@@ -59,6 +66,7 @@ module.exports = {
       I.fillField(this.fields.name, 'test');
       //image here
       I.click(this.fields.submitButton);
+      //comparaison du msg d erreur
       
     },
 
@@ -76,4 +84,4 @@ module.exports = {
       }
 
   }
-  
+}

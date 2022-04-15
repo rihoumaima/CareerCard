@@ -13,9 +13,16 @@ Scenario('creation d\'une team pass', async ({ I, teamsPage}) => {
 })
 
 
-Scenario('creation d\'une team avec une icone manquante', async ({ I, teamsPage}) => { 
+Scenario('creation d\'une team sans image', async ({ I, teamsPage}) => { 
     teamsPage.creation_team_fail_missing_file(conf.teams_url);
-    I.wait(1);
-    const erreur = await I.grabTextFrom('#chakra-modal--body-6 > form > div > div:nth-child(6)');
-    assert.equal(erreur,'Team Icon is mandatory, please upload a valid Image.');
+    
+})
+
+Scenario('creation d\'une team sans nom', async ({ I, teamsPage}) => { 
+    teamsPage.creation_team_fail_missing_name(teams_url);
+})
+
+
+Scenario('creation d\'une team sans type', async ({ I, teamsPage}) => { 
+    teamsPage.creation_team_fail_missing_type(teams_url);
 })
