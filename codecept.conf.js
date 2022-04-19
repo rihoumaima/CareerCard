@@ -9,7 +9,7 @@ conf['login_password'] = 'Admin1234@';
 conf['login_email_failed_wrong_format'] = 'yebega7398nuesond.com';
 conf['login_password_failed_wrong'] = 'Admin1234';
 conf['login_email_failed_wrong_data'] = 'yebega7398@nueson.com';
-
+conf['manageCoaching_url'] = careerCardUrl + '/ManageCoachings';
 conf['teams_url'] = careerCardUrl + '/Teams';
 
 exports.config = {

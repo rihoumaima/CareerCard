@@ -15,7 +15,7 @@ Scenario('creation d\'une team pass', async ({ I, teamsPage}) => {
 
 Scenario('creation d\'une team sans image', async ({ I, teamsPage}) => { 
     teamsPage.creation_team_fail_missing_file(conf.teams_url);
-    
+
 })
 
 Scenario('creation d\'une team sans nom', async ({ I, teamsPage}) => { 
