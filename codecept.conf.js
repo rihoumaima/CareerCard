@@ -15,6 +15,7 @@ conf['members_url'] = careerCardUrl + '/Members';
 conf['settings_url'] = careerCardUrl + '/Settings';
 conf['reinforcements_url'] = careerCardUrl + '/Reinforcements';
 conf['prizes_url'] = careerCardUrl + '/Prizes';
+conf['dashboard_url'] = careerCardUrl + '/Dashboard';
 
 exports.config = {
   tests: './tests/*.js',
@@ -47,6 +48,7 @@ exports.config = {
     coachingPage: './pages/coaching_page.js',
     reinforcementsPage: './pages/reinforcements_page.js',
     dashboardPage: './pages/dashboard_page.js',
+    signoutPage: './pages/signout_page.js'
 
   },
   bootstrap: null,
