@@ -11,6 +11,8 @@ module.exports = {
         points: 'points',
         choisirUnFIchier: 'image',
         bouttonDeLaConfirmationDeLaCreation: 'Create',
+        erreurNameMsg: '#root > div > div > div.css-jfo9gg > form > div > div:nth-child(1) > span:nth-child(8)',
+        erreurfileMsg: '#root > div > div > div.css-jfo9gg > form > div > div:nth-child(1) > span:nth-child(13)' 
     },
 
     createPrizePass(prizes_url){
@@ -33,8 +35,8 @@ module.exports = {
         I.fillField(this.fields.points,'10');
         //image here
         I.click(this.fields.bouttonDeLaConfirmationDeLaCreation);
-        const erreur = await I.grabTextFrom()//le selecteur du msg d erreur
-        assert.equal(erreur,'')//le msg d erreur
+        const erreur = await I.grabTextFrom(this.fields.erreurNameMsg)
+        assert.equal(erreur,'The prize name is Required')
     },
     createPrizeWithoutFile(prizes_url){
         I.say('create a prize without file');
@@ -45,8 +47,8 @@ module.exports = {
         I.fillField(this.fields.name,'test');
         I.fillField(this.fields.points,'10');
         I.click(this.fields.bouttonDeLaConfirmationDeLaCreation);
-        const erreur = await I.grabTextFrom()//le selecteur du msg d erreur
-        assert.equal(erreur,'')//le msg d erreur
+        const erreur = await I.grabTextFrom(this.fields.erreurfileMsg)
+        assert.equal(erreur,'A file is required')
 
 
     }
