@@ -12,6 +12,9 @@ conf['login_email_failed_wrong_data'] = 'yebega7398@nueson.com';
 conf['manageCoaching_url'] = careerCardUrl + '/ManageCoachings';
 conf['teams_url'] = careerCardUrl + '/Teams';
 conf['members_url'] = careerCardUrl + '/Members';
+conf['settings_url'] = careerCardUrl + '/Settings';
+conf['reinforcements_url'] = careerCardUrl + '/Reinforcements';
+conf['prizes_url'] = careerCardUrl + '/Prizes';
 
 exports.config = {
   tests: './tests/*.js',

@@ -74,6 +74,7 @@ module.exports = {
       I.say('editer une team');
       I.amOnPage(teams_url);
       I.click(this.fields.editButton);
+      //editer
   },
       delete_a_team(teams_url){
         I.say('delete une team');
