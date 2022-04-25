@@ -47,9 +47,14 @@ module.exports = {
         I.pressKey('Backspace');
         I.fillField(this.fields.editPoints,'10');
         I.click(this.fields.submitEdit);
-        I.wait(3);
-        I.see('Coaching informations updated.');
-
-        
-}
+        I.refreshPage(manageCoaching_url)
+     
+},
+searchingForACoaching(manageCoaching_url){
+    I.say('searching for a coaching');
+    I.amOnPage(manageCoaching_url);
+    I.fillField(this.fields.searchButton,'test 3');
+    I.wait(3);
+    I.dontSeeElement(this.fields.deleteButton);
+  }
 }

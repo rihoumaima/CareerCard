@@ -10,6 +10,7 @@ module.exports = {
       editDescription: 'description',
       editPoints: 'points',
       submitEdit: '#chakra-modal--body-21 > form > button',
+      searchButton: '#root > div > div > div.css-jfo9gg > div > div > div.sc-jcneYm.sc-gloWDX.cKDdmH.fpZUXo > div > div.MuiToolbar-root.MuiToolbar-regular.jss112.MuiToolbar-gutters > div.MuiFormControl-root.MuiTextField-root.jss117 > div > input'
 
    
   },
@@ -20,7 +21,7 @@ module.exports = {
     I.click(this.fields.bouttonDeLaConfirmationDeSuppression);
     I.dontSeeElement(this.fields.bouttonDeLaConfirmationDeSuppression);
   },
-    editReinforcement(reinforcements_url){
+    editReinforcement(reinforcements_url,manageReinforcements_url){
     I.say('edit a reinforcement');
     I.amOnPage(reinforcements_url);
     I.click(this.fields.editButton);
@@ -31,8 +32,13 @@ module.exports = {
     I.pressKey('Backspace');
     I.fillField(this.fields.editPoints,'10');
     I.click(this.fields.submitEdit);
-    I.wait(3);
-    I.see('Reinforcement informations updated.');
+    I.refreshPage(manageReinforcements_url);
 },
-
+searchingForAReinforcement(manageReinforcements_url){
+  I.say('searching for a reinforcement');
+  I.amOnPage(manageReinforcements_url);
+  I.fillField(this.fields.searchButton,'test 3');
+  I.wait(3);
+  I.dontSeeElement(this.fields.deleteButton);
+}
 }
