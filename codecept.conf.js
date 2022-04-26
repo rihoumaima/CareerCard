@@ -4,8 +4,8 @@ global.conf;
 conf = {};
 
 conf['login_url'] = careerCardUrl + '/#/';
-conf['login_email'] = 'yebega7398@nuesond.com';
-conf['login_password'] = 'Admin1234@';
+conf['login_email'] = 'yokoy40842@aikusy.com';
+conf['login_password'] = 'Admin/1234';
 conf['login_email_failed_wrong_format'] = 'yebega7398nuesond.com';
 conf['login_password_failed_wrong'] = 'Admin1234';
 conf['login_email_failed_wrong_data'] = 'yebega7398@nueson.com';
@@ -17,6 +17,7 @@ conf['reinforcements_url'] = careerCardUrl + '/Reinforcements';
 conf['prizes_url'] = careerCardUrl + '/Prizes';
 conf['dashboard_url'] = careerCardUrl + '/Dashboard';
 conf['manageReinforcements_url'] = careerCardUrl + '/ManageReinforcements';
+conf['payment_url'] = careerCardUrl + '/Settings//payment';
 
 exports.config = {
   tests: './tests/*.js',

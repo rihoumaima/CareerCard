@@ -9,6 +9,11 @@ module.exports = {
         refreshButton: '#root > div > div > div.css-jfo9gg > div > div > div.sc-jEieoE.sc-cCKzRf.kJEuVs.goqJzK > div > div.MuiToolbar-root.MuiToolbar-regular.jss5.MuiToolbar-gutters > div.jss8 > div > div > span:nth-child(2) > button > span.MuiIconButton-label > svg',
 
     },
+    createMember(){
+
+        
+    },
+
     deleteMember(members_url){
         I.say("supprimer un membre");
         I.amOnPage(members_url);

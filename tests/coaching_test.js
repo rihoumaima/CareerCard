@@ -10,14 +10,15 @@ Scenario('creer un coaching',async ({ I, coachingPage }) => {
         coachingPage.createCoaching(conf.manageCoaching_url)
        }),
 
+       Before(async ({I,coachingPage})=>{
+           coachingPage.createCoaching(conf.manageCoaching_url)
+       },
+
  Scenario('supprimer un coaching',async ({ I, coachingPage }) => { 
     
         coachingPage.deleteCoaching(conf.manageCoaching_url)
  } ,
  Scenario('modifier un coaching',async ({ I, coachingPage }) => { 
-    
     coachingPage.editCoaching(conf.manageCoaching_url)
-} 
-
-
+})
 )))

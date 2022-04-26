@@ -20,11 +20,13 @@ module.exports = {
         I.amOnPage(prizes_url);
         I.click(this.fields.createPrizeButton);
         I.selectOption(this.fields.dropdownlistType,'Company');
-        I.selectOption(this.fields.dropdownlistTeam,'');//il te faut le nom du team 
+        I.selectOption(this.fields.dropdownlistTeam,'QA team 1');
         I.fillField(this.fields.name,'test');
         I.fillField(this.fields.points,'10');
         //image here
-        I.click(this.fields.bouttonDeLaConfirmationDeLaCreation)
+        I.click(this.fields.bouttonDeLaConfirmationDeLaCreation);
+        I.refreshPage(prizes_url);
+        I.seeElement(this.fields.name)
     },
     createPrizeWithoutName(prizes_url){
         I.say('create a prize without name');

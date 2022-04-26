@@ -7,8 +7,9 @@ module.exports = {
       createButton: 'Create Team',
       submitButton: 'Create Team',
       refreshButton: 'refresh',
-      editButton: '#root > div > div > div.css-jfo9gg > div.sc-dkQkyq.sc-jivBlf.fDiXhU.cSPwSG > div > div.jss12 > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(9) > div > div:nth-child(1) > label > button > span.MuiButton-label > span > svg > path:nth-child(1)',
+      editButton: '#root > div > div > div.css-jfo9gg > div.sc-gIDmLj.sc-evcjhq.comewE.leJfDA > div > div.jss2880 > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(9) > div > div:nth-child(1) > label > button > span.MuiButton-label > span',
       name: '#name',
+      editTeamsName: 'name',
       teamTypeButton: '//*[@id="chakra-modal--body-6"]/form/div/div[3]/label[2]/span[2]',
       deleteButton: '#root > div > div > div.css-jfo9gg > div.sc-dkQkyq.sc-jivBlf.fDiXhU.cSPwSG > div > div.jss372 > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(9) > div > div:nth-child(2) > label > button > span.MuiButton-label > span > svg' ,
       bouttonDeLaConfirmationDeSuppression: 'body > div.jss570 > div.jss571.jss572 > div > div.sc-jIkXHa.eVSPhG > div:nth-child(2)',
@@ -74,7 +75,10 @@ module.exports = {
       I.say('editer une team');
       I.amOnPage(teams_url);
       I.click(this.fields.editButton);
-      //editer
+      I.click(this.fields.editTeamsName);
+      I.pressKey('Backspace');
+      I.wait(5)
+
   },
       delete_a_team(teams_url){
         I.say('delete une team');

@@ -24,10 +24,12 @@ module.exports = {
         I.amOnPage(manageCoaching_url);
         I.click(this.fields.createCoachingButton);
         I.selectOption(this.fields.dropdownlistType,'Company');
-        I.selectOption(this.fields.dropdownlistTeam,'');//il te faut le nom du team 
+        I.selectOption(this.fields.dropdownlistTeam,'QA team 1');
         I.fillField(this.fields.laCaseDeDescription,'test');
         I.fillField(this.fields.laCaseDesPoints,'10');
-        //s'assurer que le coaching a ete cree
+        I.click(this.fields.bouttonDeLaConfirmationDeLaCreation);
+        I.refreshPage(manageCoaching_url);
+        I.seeElement(this.fields.laCaseDeDescription);
     },
     deleteCoaching(manageCoaching_url){
         I.say('delete a coaching');
@@ -47,8 +49,8 @@ module.exports = {
         I.pressKey('Backspace');
         I.fillField(this.fields.editPoints,'10');
         I.click(this.fields.submitEdit);
-        I.refreshPage(manageCoaching_url)
-     
+        I.refreshPage(manageCoaching_url);
+             
 },
 searchingForACoaching(manageCoaching_url){
     I.say('searching for a coaching');

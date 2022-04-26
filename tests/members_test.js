@@ -1,7 +1,10 @@
 /// <reference path="../steps.d.ts" />
 const assert = require('assert');
 
-Feature('members');
+Feature('@members');
+Before(async ({ I, loginPage })=>{
+    loginPage.login(conf.login_url, conf.login_email, conf.login_password);
+})
 
 Scenario('delete a member',async ({ I, membersPage }) => { 
     membersPage.deleteMember(conf.members_url)
