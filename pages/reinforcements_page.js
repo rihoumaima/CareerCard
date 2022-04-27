@@ -16,7 +16,8 @@ module.exports = {
       dropdownlistTeam: 'Team',
       laCaseDeDescription: 'description',
       laCaseDesPoints: 'points',
-      bouttonDeLaConfirmationDeLaCreation: 'Create'
+      bouttonDeLaConfirmationDeLaCreation: 'Create',
+     
 
    
   },
@@ -37,15 +38,15 @@ module.exports = {
     I.amOnPage(manageReinforcements_url)
     I.click(this.fields.deleteButton);
     I.click(this.fields.bouttonDeLaConfirmationDeSuppression);
-    I.dontSeeElement(this.fields.bouttonDeLaConfirmationDeSuppression);
+    I.dontSeeElement(this.fields.deleteButton);
   },
     editReinforcement(manageReinforcements_url){
     I.say('edit a reinforcement');
     I.amOnPage(manageReinforcements_url);
     I.click(this.fields.editButton);
     I.click(this.fields.editDescription);
-    I.wait(5)
     I.pressKey('Backspace');
+    I.wait(5)
     I.fillField(this.fields.editDescription,'test');
     I.click(this.fields.editPoints);
     I.pressKey('Backspace');
@@ -53,6 +54,7 @@ module.exports = {
     I.fillField(this.fields.editPoints,'10');
     I.click(this.fields.submitEdit);
     I.refreshPage(manageReinforcements_url);
+    I.seeElement(this.fields.editDescription);
 },
 searchingForAReinforcement(manageReinforcements_url){
   I.say('searching for a reinforcement');
@@ -60,5 +62,14 @@ searchingForAReinforcement(manageReinforcements_url){
   I.fillField(this.fields.searchButton,'test 3');
   I.wait(3);
   I.dontSeeElement(this.fields.deleteButton);
+},
+reinforcementsFiltre(reinforcements_url){//avant ce filtre faut creer 2 teams avec 2 types differents(company et family)
+  I.say('filtrer les reinforcements');
+  I.amOnPage(reinforcements_url);
+  I.selectOption(this.fields.dropdownlistType,'Company');
+  I.wait(3);
+  I.selectOption(this.fields.dropdownlistTeam,'QA team 1');
+  I.dontSee('family')
+  I.dontSee('Team leaders3');
 }
 }

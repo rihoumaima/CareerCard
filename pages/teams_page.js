@@ -14,7 +14,10 @@ module.exports = {
       deleteButton: '#root > div > div > div.css-jfo9gg > div.sc-dkQkyq.sc-jivBlf.fDiXhU.cSPwSG > div > div.jss372 > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(9) > div > div:nth-child(2) > label > button > span.MuiButton-label > span > svg' ,
       bouttonDeLaConfirmationDeSuppression: 'body > div.jss570 > div.jss571.jss572 > div > div.sc-jIkXHa.eVSPhG > div:nth-child(2)',
       errorMsgInsertionDimage: '#chakra-modal--body-6 > form > div > div:nth-child(6)',
-      errorMsgInsertionDuNom: '#chakra-modal--body-6 > form > div > div:nth-child(6)', 
+      errorMsgInsertionDuNom: '#chakra-modal--body-8 > form > div > div:nth-child(3)', 
+      errorMsgInsertionDuType: '#chakra-modal--body-8 > form > div > div:nth-child(9)',
+      dropdownlistType: 'Type', 
+      dropdownlistSubscription: 'Subscription',
   
     creation_team_pass(teams_url) {
       I.say('creer une team');
@@ -39,10 +42,7 @@ module.exports = {
         I.click(this.fields.teamTypeButton);
         I.click(this.fields.submitButton);
         I.wait(1);
-        const erreur = await I.grabTextFrom(this.fields.errorMsgInsertionDimage);
-       assert.equal(erreur,'Team Icon is mandatory, please upload a valid Image.');
-        
-      },
+        },
 
       
     creation_team_fail_missing_name(teams_url) {
@@ -54,8 +54,6 @@ module.exports = {
       I.click(this.fields.teamTypeButton);
       I.click(this.fields.submitButton);
       I.wait(1);
-      const erreur = await I.grabTextFrom(this.fields.errorMsgInsertionDuNom);
-      assert.equal(erreur,'Team Icon is mandatory, please upload a valid Image.');
       
     },
 
@@ -67,7 +65,7 @@ module.exports = {
       I.fillField(this.fields.name, 'test');
       //image here
       I.click(this.fields.submitButton);
-      //comparaison du msg d erreur
+      
       
     },
 
@@ -77,7 +75,9 @@ module.exports = {
       I.click(this.fields.editButton);
       I.click(this.fields.editTeamsName);
       I.pressKey('Backspace');
-      I.wait(5)
+      I.wait(5);
+      I.fillField(this.fields.editTeamsName,'test');// a continuer
+
 
   },
       delete_a_team(teams_url){
@@ -87,6 +87,14 @@ module.exports = {
         I.click(this.fields.bouttonDeLaConfirmationDeSuppression);
         I.dontSeeElement(this.fields.bouttonDeLaConfirmationDeSuppression);
       }
-
-  }
+    },
+    teamsFiltre(teams_url){//avant ce filtre faut creer 2 teams avec 2 types differents(company et free)
+      I.amOnPage(teams_url);
+      I.selectOption(this.fields.dropdownlistType,'Company');
+      I.wait(3);
+      I.selectOption(this.fields.dropdownlistSubscription,'Free');
+      I.dontSee('family');
+      I.dontSee('Basic');
+    
+    }
 }

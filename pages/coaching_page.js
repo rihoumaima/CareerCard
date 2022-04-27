@@ -38,7 +38,7 @@ module.exports = {
         I.click(this.fields.bouttonDeLaConfirmationDeSuppression);
         I.dontSeeElement(this.fields.bouttonDeLaConfirmationDeSuppression);
       },
-        editCoaching(manageCoaching_url){
+    editCoaching(manageCoaching_url){
         I.say('edit a coaching');
         I.amOnPage(manageCoaching_url);
         I.click(this.fields.editButton);
@@ -50,13 +50,23 @@ module.exports = {
         I.fillField(this.fields.editPoints,'10');
         I.click(this.fields.submitEdit);
         I.refreshPage(manageCoaching_url);
-             
+        I.seeElement(this.fields.editDescription);       
 },
-searchingForACoaching(manageCoaching_url){
+    searchingForACoaching(manageCoaching_url){
     I.say('searching for a coaching');
     I.amOnPage(manageCoaching_url);
     I.fillField(this.fields.searchButton,'test 3');
     I.wait(3);
     I.dontSeeElement(this.fields.deleteButton);
+  },
+    coachingsFiltre(Coaching_url){//avant ce filtre faut creer 2 teams avec 2 types differents(company et family)
+    I.say('filter les coachings')  
+    I.amOnPage(Coaching_url);
+    I.selectOption(this.fields.dropdownlistType,'Company');
+    I.wait(3);
+    I.selectOption(this.fields.dropdownlistTeam,'QA team 1');
+    I.dontSee('family')
+    I.dontSee('Team leaders3');
+    
   }
 }

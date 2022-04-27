@@ -11,6 +11,9 @@ Scenario('delete a member',async ({ I, membersPage }) => {
 },
 
 Scenario('searching for a member',async ({ I, membersPage }) => { 
-    membersPage.searchingForAMember(conf.members_url)
-   
-}))
+    membersPage.searchingForAMember(conf.members_url);
+},
+Scenario('filtrer les membres',async ({ I, membersPage }) => { 
+    membersPage.membersFiltre(conf.members_url);
+}
+)))

@@ -18,6 +18,7 @@ conf['prizes_url'] = careerCardUrl + '/Prizes';
 conf['dashboard_url'] = careerCardUrl + '/Dashboard';
 conf['manageReinforcements_url'] = careerCardUrl + '/ManageReinforcements';
 conf['payment_url'] = careerCardUrl + '/Settings//payment';
+conf['Coaching_url'] = careerCardUrl + '/Coachings';
 
 exports.config = {
   tests: './tests/*.js',
