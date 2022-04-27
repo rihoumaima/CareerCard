@@ -5,12 +5,18 @@
   "main": "index.js",
   "scripts": {
     "all": "codeceptjs run --steps ",
-    "search": "codeceptjs run --steps --grep @search_codeceptjs",
     "login": "codeceptjs run --steps --grep @login",
-    "teams": "codeceptjs run --steps --grep @teams"
+    "teams": "codeceptjs run --steps --grep @teams",
+    "coaching": "codeceptjs run --steps --grep @coaching",
+    "reinforcements": "codeceptjs run --steps --grep @reinforcements",
+    "settings": "codeceptjs run --steps --grep @settings",
+    "dashboard": "codeceptjs run --steps --grep @dashboard",
+    "prizes": "codeceptjs run --steps --grep @prizes",
+    "signout": "codeceptjs run --steps --grep @signout",
+    "members": "codeceptjs run --steps --grep @members"
     
   },
-  "author": "amina",
+  "author": "oumaima",
   "license": "ISC",
   "devDependencies": {
     "codeceptjs": "^3.3.0",

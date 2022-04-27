@@ -4,13 +4,21 @@ global.conf;
 conf = {};
 
 conf['login_url'] = careerCardUrl + '/#/';
-conf['login_email'] = 'yebega7398@nuesond.com';
-conf['login_password'] = 'Admin1234@';
+conf['login_email'] = 'yokoy40842@aikusy.com';
+conf['login_password'] = 'Admin/1234';
 conf['login_email_failed_wrong_format'] = 'yebega7398nuesond.com';
 conf['login_password_failed_wrong'] = 'Admin1234';
 conf['login_email_failed_wrong_data'] = 'yebega7398@nueson.com';
-
+conf['manageCoaching_url'] = careerCardUrl + '/ManageCoachings';
 conf['teams_url'] = careerCardUrl + '/Teams';
+conf['members_url'] = careerCardUrl + '/Members';
+conf['settings_url'] = careerCardUrl + '/Settings';
+conf['reinforcements_url'] = careerCardUrl + '/Reinforcements';
+conf['prizes_url'] = careerCardUrl + '/Prizes';
+conf['dashboard_url'] = careerCardUrl + '/Dashboard';
+conf['manageReinforcements_url'] = careerCardUrl + '/ManageReinforcements';
+conf['payment_url'] = careerCardUrl + '/Settings//payment';
+conf['Coaching_url'] = careerCardUrl + '/Coachings';
 
 exports.config = {
   tests: './tests/*.js',
@@ -43,6 +51,8 @@ exports.config = {
     coachingPage: './pages/coaching_page.js',
     reinforcementsPage: './pages/reinforcements_page.js',
     dashboardPage: './pages/dashboard_page.js',
+    signoutPage: './pages/signout_page.js'
+    
 
   },
   bootstrap: null,
